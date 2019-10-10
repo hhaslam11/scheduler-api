@@ -25,6 +25,28 @@ Both of these achieve the same result.
 
 The `development` data is random. Each time we seed we expect to see different appointments.
 
+## Test mode
+Setup the test environment for running cypress
+
+Create a database with the command `CREATE DATABASE scheduler_test;`.
+
+Copy the `.env.example` file to `.env.test` and fill in the necessary PostgreSQL configuration. The `node-postgres` library uses these environment variables by default.
+
+Run a the test server with `npm run test:server` in the Host environment. We are only using vagrant for `psql` this week.
+
+Both of these achieve the same result.
+
+- Make a `GET` request to `/api/debug/reset` with `curl http://localhost:8001/api/debug/reset`.
+- Use the browser to navigate to `http://localhost:8001/api/debug/reset`.
+
+```
+PGHOST=localhost
+PGUSER=development
+PGDATABASE=scheduler_test
+PGPASSWORD=development
+PGPORT=5432
+```
+
 ## Api
 
 ### Days
